@@ -1,0 +1,11 @@
+target/
+.idea/
+*.iml
+
+# Entorno local y notas privadas
+.claude/
+CLAUDE.md
+*.local.md
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
