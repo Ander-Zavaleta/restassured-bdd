@@ -1,3 +1,9 @@
+<div align="center">
+
+<a href="https://canvia.com"><img src="assets/logo-canvia.svg" alt="Canvia" width="160" /></a>
+
+</div>
+
 # Documentación
 
 | # | Guía | Para quién |
@@ -9,6 +15,8 @@
 
 ## Material en PDF
 
+- [Manual del entorno Docker (alumno e instructor)](pdf/manual-entorno-docker-restassured.pdf)
+- [Manual de Git y GitHub](pdf/manual-git-github.pdf)
 - [Manual de instalación (Windows, macOS y Linux)](pdf/manual-instalacion-restassured-cucumber.pdf)
 - [Presentación del curso y ejercicios](pdf/presentacion-restassured-cucumber.pdf)
 
