@@ -1,0 +1,54 @@
+# Windows 11 dentro de Docker (imagen dockurr/windows) para la demo del instructor.
+#
+#   limpio -> Windows recién instalado, sin nada. Para enseñar la instalación paso a paso.
+#   listo  -> Windows que se autoconfigura al instalarse (JDK 17, Maven, Git, VS Code + extensiones).
+#
+# Uso:  docker compose --profile limpio up -d     (luego abrir http://localhost:8006)
+# Solo uno a la vez: ambos usan los mismos puertos.
+name: canvia-windows-restassured
+
+x-windows: &windows
+  image: dockurr/windows
+  environment: &entorno
+    VERSION: "11"
+    LANGUAGE: "Spanish"
+    REGION: "es-ES"
+    KEYBOARD: "es-ES"        # teclado latinoamericano: "es-MX"
+    USERNAME: "alumno"
+    PASSWORD: "canvia"
+    RAM_SIZE: "6G"
+    CPU_CORES: "4"
+    DISK_SIZE: "64G"
+  devices:
+    - /dev/kvm
+    - /dev/net/tun
+  cap_add:
+    - NET_ADMIN
+  ports:
+    - "8006:8006"            # escritorio de Windows en el navegador
+    - "3389:3389/tcp"        # Escritorio remoto (opcional)
+    - "3389:3389/udp"
+  stop_grace_period: 2m
+  restart: "no"
+
+services:
+  windows-limpio:
+    <<: *windows
+    profiles: [limpio]
+    container_name: canvia-windows-restassured-limpio
+    volumes:
+      - disco-limpio:/storage
+      - ../..:/shared          # el repo aparece en Windows como carpeta compartida
+
+  windows-listo:
+    <<: *windows
+    profiles: [listo]
+    container_name: canvia-windows-restassured-listo
+    volumes:
+      - disco-listo:/storage
+      - ../..:/shared
+      - ./oem:/oem             # install.bat se ejecuta solo al terminar la instalación
+
+volumes:
+  disco-limpio:
+  disco-listo:

@@ -1,0 +1,20 @@
+# Entorno del alumno: VS Code en el navegador con Java 17 y Maven ya instalados.
+# Uso: iniciar-entorno.bat (Windows) o ./iniciar-entorno.sh (macOS/Linux).
+name: canvia-restassured
+
+services:
+  entorno:
+    build:
+      context: .
+      dockerfile: docker/alumnos/Dockerfile
+    image: canvia/entorno-restassured:1.0
+    container_name: canvia-restassured
+    ports:
+      - "127.0.0.1:8800:8080"
+    volumes:
+      - .:/workspace
+      - maven-cache:/root/.m2
+    restart: unless-stopped
+
+volumes:
+  maven-cache:
