@@ -1,5 +1,7 @@
 # Windows en Docker (demo del instructor)
 
+> Versión para imprimir: [PDF con formato Canvia](pdf/manual-entorno-docker-restassured.pdf).
+
 Levanta un **Windows 11 recién instalado** dentro de Docker para mostrar en clase la instalación completa,
 paso a paso, sobre una máquina limpia. Usa la imagen [`dockurr/windows`](https://github.com/dockur/windows),
 que descarga Windows desde Microsoft, lo instala solo y lo muestra en el navegador.
