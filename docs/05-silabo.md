@@ -1,5 +1,7 @@
 # Sílabo · Pruebas de APIs con REST Assured + Cucumber
 
+> Versión para imprimir: [PDF con formato Canvia](pdf/silabo-restassured-cucumber.pdf).
+
 > Parte 1 del curso de QA Automation de Canvia. 100 % práctico: cada sesión termina con código tuyo en verde y un Pull Request.
 
 | | |
